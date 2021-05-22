@@ -1,6 +1,9 @@
-var quizContainer = document.getElementById('quiz');
+var quizContainer = document.getElementById('quiz-box');
 var resultContainer = document.getElementById('results');
 var submitButton = document.getElementById('submit');
+var startButton = document.getElementById('start');
+var timeLeft = document.getElementById('time-left');
+
 
 // QUESTIONS TO BE ASKED
 var questions = [
@@ -58,10 +61,25 @@ var questions = [
 
 
 // FUNCTIONS TO BE RUNNED 
+	// FUNCTION TO START QUIZ
 function startQuiz() {
 
 }
+	// FUNCTION COUNTDOWN TIMER'
+var time = 100
+function countDown() {
+	setInterval(function(){
+		if(time <= 0) {
+			clearInterval(time = 0)
+		}
+		timeLeft.innerHTML = time
+		time -= 1
+	}, 1000)
+}
 
+startButton.addEventListener('click', countDown);
+
+	// FUNCTION SUBMIT QUESTION
 function nextQuestion() {
 
 }
