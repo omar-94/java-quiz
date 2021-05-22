@@ -1,82 +1,68 @@
+// ELEMENTS IN HTML DECLARED
 var quizContainer = document.getElementById('quiz-box');
-var resultContainer = document.getElementById('results');
-var submitButton = document.getElementById('submit');
+var quizQuestions = document.getElementById('questions')
 var startButton = document.getElementById('start');
 var timeLeft = document.getElementById('time-left');
 var timeDisplay =document.getElementById('time-display');
 
+// ELEMENTS CREATED
+var ulQuiz = document.createElement('ul');
 
 // QUESTIONS TO BE ASKED
-var questions = [
+var questionList = [
 	{
 		question: "What are variables used for in JavaScript Programs?",
-		answers: {
-			a: "Storing numbers, dates, or other values", 
-			b: "Varying randomly",
-			c: "Causing high-school algebra flashbacks",
-			d: "None of the above",
-		},    
-		correctAnswer: "a"
+		choices: ["Storing numbers, dates, or other values", "Varying randomly", "Causing high-school algebra flashbacks", "None of the above"],
+		correctAnswer: "Storing numbers",
 	},
 	{
 		question: "Inside which HTML element do we put the JavaScript?",
-		answers: {
-			a: "<js>", 
-			b: "<scripting>",
-			c: "<script>",
-			d: "<javascript",
-		},    
-		correctAnswer: "c"
+		choices: ["<js>", "<scripting>", "<script>", "<javascript"],   
+		correctAnswer: "<script>",
 	},
 	{
 		question: "How can you get the total number of arguments passed to a function?",
-		answers: {
-			a: "Using args.length property", 
-			b: "Using arguments.length property",
-			c: "Both of the above",
-			d: "None of the above",
-		},    
-		correctAnswer: "b"
+		choices: ["Using args.length property", "Using arguments.length property", "Both of the above", "None of the above"], 
+		correctAnswer: "Using arguments.length property",
 	},
 	{
 		question: "Which built-in method returns the string representation of the number's value?",
-		answers: {
-			a: "toValue()", 
-			b: "toNumber()",
-			c: "toString()",
-			d: "None of the above",
-		},    
-		correctAnswer: "c"
+		choices: ["toValue()", "toNumber()", "toString()", "None of the above"],
+		correctAnswer: "toString()",
 	},
 	{
 		question: "Which of the following function of Array object removes the last element from an array and returns that element?",
-		answers: {
-			a: "pop()", 
-			b: "push()",
-			c: "join()",
-			d: "map()",
-		},    
-		correctAnswer: "a"
+		choices: ["pop()", "push()", "join()", "map()"],    
+		correctAnswer: "pop()",
 	},
 ]
-
+// VARIABLES DECLARED
+var questionIndex = 0
 
 // FUNCTIONS 
 	// FUNCTION TO START QUIZ
 function startQuiz() {
-
+	quizQuestions.innerHTML = "";
+	ulQuiz.innerHTML= "";
+	for (var i = 0; i < questionList.length; i++) {
+		var questionAsked = questionList[questionIndex].question;
+		var choicesAsked = questionList[questionIndex].choices;
+		quizQuestions.textContent = questionAsked;
+	}
 }
+
 	// FUNCTION COUNTDOWN TIMER
-var time = 100;
 function countDown() {
-	var timeInterval =setInterval(function() {
+	var time = 5;
+	var timeInterval = setInterval(function() {
 		timeLeft.textContent = time;
 		time--;
-		if(time === 0) {
+		if (time < 0) {
 			clearInterval(timeInterval);
 			sendMessage();
 		}
 	}, 1000);
+	startQuiz();
 }
 	// GAME OVER MESSAGE
 function sendMessage() {
@@ -85,14 +71,5 @@ function sendMessage() {
 	// COUNTDOWN BEGINS ON CLICK
 startButton.addEventListener('click', countDown);
 
-	// FUNCTION SUBMIT QUESTION
-function nextQuestion() {
 
-}
-
-// DISPLAY QUIZ
-startQuiz();
-
-// WHEN NEXT QUESTION IS CLICKED... NEXT QUESTION IS SHOWN
-nextQuestion();
 
