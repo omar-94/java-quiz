@@ -9,3 +9,8 @@ At the end of the quiz, the user is presented with their final score and the sco
 
 https://omar-94.github.io/java-quiz/
 
+![Screen Shot 2021-05-22 at 4 02 04 PM](https://user-images.githubusercontent.com/48743354/119239463-44551280-bb17-11eb-9480-e6453c05f770.png)
+
+![Screen Shot 2021-05-22 at 4 04 04 PM](https://user-images.githubusercontent.com/48743354/119239484-5f278700-bb17-11eb-943a-6568a8c99199.png)
+
+![Screen Shot 2021-05-22 at 4 04 35 PM](https://user-images.githubusercontent.com/48743354/119239497-6e0e3980-bb17-11eb-9c8b-baace2f151b2.png)
