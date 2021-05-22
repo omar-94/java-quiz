@@ -104,7 +104,11 @@ function countDown() {
 }
 
 //FUNCTION TO BE DONE
+function allDone() {
+	quizQuestions.innerHTML = "";
+	timeDisplay.innerHTML = "";
 
+}
 
 	// GAME OVER MESSAGE
 function sendMessage() {
