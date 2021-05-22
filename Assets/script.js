@@ -94,10 +94,11 @@ function compare(event) {
 function countDown() {
 	var timeInterval = setInterval(function() {
 		timeLeft.textContent = time;
-		time--;
-		if (time < 0) {
+		time = time - 1;
+		if (time <= -1) {
 			clearInterval(timeInterval);
-			sendMessage();
+			allDone();
+			timeDisplay.textContent = "Time is up :(";
 		}
 	}, 1000);
 	startQuiz(questionIndex);
@@ -110,10 +111,6 @@ function allDone() {
 
 }
 
-	// GAME OVER MESSAGE
-function sendMessage() {
-	timeDisplay.textContent = "Game Over";
-}
 	// COUNTDOWN BEGINS ON CLICK
 startButton.addEventListener('click', countDown);
 
