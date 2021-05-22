@@ -5,9 +5,6 @@ var startButton = document.getElementById('start');
 var timeLeft = document.getElementById('time-left');
 var timeDisplay =document.getElementById('time-display');
 
-// ELEMENTS CREATED
-var ulQuiz = document.createElement('ul');
-
 // QUESTIONS TO BE ASKED
 var questionList = [
 	{
@@ -36,18 +33,41 @@ var questionList = [
 		correctAnswer: "pop()",
 	},
 ]
+
 // VARIABLES DECLARED
 var questionIndex = 0
+// ELEMENTS CREATED
+var ulQuiz = document.createElement('ul');
 
 // FUNCTIONS 
 	// FUNCTION TO START QUIZ
-function startQuiz() {
+function startQuiz(questionIndex) {
 	quizQuestions.innerHTML = "";
 	ulQuiz.innerHTML= "";
+	var questionAsked = questionList[questionIndex].question;
+	var choicesAsked = questionList[questionIndex].choices
 	for (var i = 0; i < questionList.length; i++) {
-		var questionAsked = questionList[questionIndex].question;
-		var choicesAsked = questionList[questionIndex].choices;
 		quizQuestions.textContent = questionAsked;
+	}
+	choicesAsked.forEach(function(newItem) {
+		var listQuestions = document.createElement('li');
+		listQuestions.textContent = newItem;
+		quizQuestions.appendChild(ulQuiz);
+		ulQuiz.appendChild(listQuestions);
+		listQuestions.addEventListener("click", (compare));
+	})
+}
+
+	// FUNCTION TO COMPARE ANSWERS AND QUIZ
+function compare(event) {
+	var element = event.target;
+	if (element.matches("li")) {
+		var createDiv = document.createElement("div");
+		createDiv.setAttribute("id", "createDiv")
+		if (element.textContent == questionList[questionIndex].correctAnswer) {
+			score ++;
+			createDiv.textContent = "Correct Answer!"
+		}
 	}
 }
 
@@ -62,7 +82,7 @@ function countDown() {
 			sendMessage();
 		}
 	}, 1000);
-	startQuiz();
+	startQuiz(questionIndex);
 }
 	// GAME OVER MESSAGE
 function sendMessage() {
