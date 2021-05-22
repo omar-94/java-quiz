@@ -36,6 +36,10 @@ var questionList = [
 
 // VARIABLES DECLARED
 var questionIndex = 0
+var score = 0
+var penalty = 10
+var time = 100
+
 // ELEMENTS CREATED
 var ulQuiz = document.createElement('ul');
 
@@ -67,13 +71,15 @@ function compare(event) {
 		if (element.textContent == questionList[questionIndex].correctAnswer) {
 			score ++;
 			createDiv.textContent = "Correct Answer!"
+		} else {
+			time = time - penalty;
+			createDiv.textContent = "Wrong Answer!"
 		}
 	}
 }
 
 	// FUNCTION COUNTDOWN TIMER
 function countDown() {
-	var time = 5;
 	var timeInterval = setInterval(function() {
 		timeLeft.textContent = time;
 		time--;
