@@ -4,3 +4,6 @@ Java Quiz is a fun little quiz that prompts the user with a series of questions 
 
 https://omar-94.github.io/java-quiz/
 
+![Screen Shot 2021-05-22 at 4 02 04 PM](https://user-images.githubusercontent.com/48743354/119239766-32746f00-bb19-11eb-8b54-49c47a47cc35.png)
+![Screen Shot 2021-05-22 at 4 04 04 PM](https://user-images.githubusercontent.com/48743354/119239768-32746f00-bb19-11eb-92df-905bc46042cf.png)
+![Screen Shot 2021-05-22 at 4 04 35 PM](https://user-images.githubusercontent.com/48743354/119239769-32746f00-bb19-11eb-986d-05f58ff71965.png)
