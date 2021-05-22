@@ -3,6 +3,7 @@ var resultContainer = document.getElementById('results');
 var submitButton = document.getElementById('submit');
 var startButton = document.getElementById('start');
 var timeLeft = document.getElementById('time-left');
+var timeDisplay =document.getElementById('time-display');
 
 
 // QUESTIONS TO BE ASKED
@@ -60,23 +61,28 @@ var questions = [
 ]
 
 
-// FUNCTIONS TO BE RUNNED 
+// FUNCTIONS 
 	// FUNCTION TO START QUIZ
 function startQuiz() {
 
 }
-	// FUNCTION COUNTDOWN TIMER'
-var time = 100
+	// FUNCTION COUNTDOWN TIMER
+var time = 100;
 function countDown() {
-	setInterval(function(){
-		if(time <= 0) {
-			clearInterval(time = 0)
+	var timeInterval =setInterval(function() {
+		timeLeft.textContent = time;
+		time--;
+		if(time === 0) {
+			clearInterval(timeInterval);
+			sendMessage();
 		}
-		timeLeft.innerHTML = time
-		time -= 1
-	}, 1000)
+	}, 1000);
 }
-
+	// GAME OVER MESSAGE
+function sendMessage() {
+	timeDisplay.textContent = "Game Over";
+}
+	// COUNTDOWN BEGINS ON CLICK
 startButton.addEventListener('click', countDown);
 
 	// FUNCTION SUBMIT QUESTION

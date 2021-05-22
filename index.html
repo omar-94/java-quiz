@@ -4,25 +4,27 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS Style -->
+  <link type="text/css" rel="stylesheet" href="/Assets/style.css">
   <title>Quiz Time</title>
-  <!-- ADD CSS LINK -->
 </head>
 
 <body>
   <header>
     <h1> Javascript Quiz </h1>
-    <h3> Time left <span id="time-left">100</span> Seconds!</h3>
+    <h3> Highscores </h3>
+    <h3 id="time-display" > Time left <span id="time-left">100</span> Seconds!</h3>
   </header>
 
-  <section id="quiz-box">
-    <div id="quiz"> </div>
-    <button id="start"> START </button>
-    <button hidden id="submit"> SUBMIT </button>
-    <div id="results"> </div>
-  </section>
+  <div id="quiz-box">
+    <div id="questions">
+      <p> Welcome to the JavaScript Quiz! Answer the following code-related questions within the time limit. Incorrect answers will penalize your time by ten seconds. Good luck!</p>
+    </div>
+  </div>
+  <button id="start"> START </button>
 </body>
 
-<!-- ADD JAVASCRIPT LINK -->    
+<!-- JavaScript Link -->    
 <script type="text/Javascript" src="Assets/script.js"> </script>
 
 </html>
