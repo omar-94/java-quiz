@@ -10,7 +10,7 @@ var questionList = [
 	{
 		question: "What are variables used for in JavaScript Programs?",
 		choices: ["Storing numbers, dates, or other values", "Varying randomly", "Causing high-school algebra flashbacks", "None of the above"],
-		correctAnswer: "Storing numbers",
+		correctAnswer: "Storing numbers, dates, or other values",
 	},
 	{
 		question: "Inside which HTML element do we put the JavaScript?",
@@ -62,9 +62,10 @@ function startQuiz(questionIndex) {
 	})
 }
 
-	// FUNCTION TO COMPARE ANSWERS AND QUIZ
+	// FUNCTION TO COMPARE ANSWERS
 function compare(event) {
 	var element = event.target;
+
 	if (element.matches("li")) {
 		var createDiv = document.createElement("div");
 		createDiv.setAttribute("id", "createDiv")
@@ -76,6 +77,17 @@ function compare(event) {
 			createDiv.textContent = "Wrong Answer!"
 		}
 	}
+
+	// Next Question
+	questionIndex++;
+
+	if (questionIndex >= questionList.length) {
+		allDone();
+		createDiv.textContent = "Your score is:" + score + "/" + questionList.length;
+	} else {
+		startQuiz(questionIndex);
+	}
+	quizQuestions.appendChild(createDiv);
 }
 
 	// FUNCTION COUNTDOWN TIMER
@@ -90,6 +102,10 @@ function countDown() {
 	}, 1000);
 	startQuiz(questionIndex);
 }
+
+//FUNCTION TO BE DONE
+
+
 	// GAME OVER MESSAGE
 function sendMessage() {
 	timeDisplay.textContent = "Game Over";
